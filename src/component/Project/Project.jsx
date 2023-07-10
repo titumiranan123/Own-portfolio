@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-
+import { BsArrowUpRight } from "react-icons/bs";
 
 const Projects = ({ project }) => {
     const { usedTechnology, image, liveWebsiteLink, features, projectName } = project;
@@ -10,9 +10,10 @@ const Projects = ({ project }) => {
 
             </div>
             <div className="z-10 sm:order-2 sm:col-span-6">
-                <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300  group/link text-base" href="">
+                <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300  group/link text-base" href={liveWebsiteLink}>
                     <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                     <span>{projectName}</span>
+                    <BsArrowUpRight />
                 </a>
                 <h2 className="text-bold text-slate-200">Feature :</h2>
                 <p className="mt-2 text-sm text-slate-300 leading-normal">

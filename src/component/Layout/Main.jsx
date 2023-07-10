@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import About from "../About/About";
 
 import useProject from "../CustomHook.jsx/CustomHook";
@@ -11,8 +11,10 @@ import { Helmet } from "react-helmet";
 import SunlightEffect from "../Cursor/Cursor";
 import ContactForm from "../Contact/Contact";
 import Footer from "../Footer/Footer";
+import ResumePage from "../Resume/Resume";
 
 const Main = () => {
+    const [showAnotherComponent, setShowAnotherComponent] = useState(false);
     const data = useProject()
     const skillsRef = useRef(null);
     const projectsRef = useRef(null);
@@ -24,6 +26,14 @@ const Main = () => {
         aboutRef,
         contactRef
     }
+    const handleClick = () => {
+        setShowAnotherComponent(true);
+    };
+
+    if (showAnotherComponent) {
+        return <ResumePage />;
+    }
+
     return (
         <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
             <Helmet>
@@ -33,6 +43,9 @@ const Main = () => {
             <div className='lg:flex lg:justify-between lg:gap-4'>
                 <div className='lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24'>
                     <Header />
+                    <div className="text-white bg-teal-300 w-[80px] text-center mt-5 mb-5 py-1 px-2 rounded-md shadow-2xl">
+                        <button className="btn" onClick={handleClick}>Resume</button>
+                    </div>
                     <Navbar allref={allref} />
                     <Socialmedia />
 
