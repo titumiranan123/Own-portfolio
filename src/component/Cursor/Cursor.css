@@ -1,0 +1,11 @@
+.light-effect {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 0, 255, 0.3) 10%, transparent 70%);
+    mix-blend-mode: screen;
+    z-index: 9999;
+}
